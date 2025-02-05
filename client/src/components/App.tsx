@@ -1,10 +1,10 @@
 import React from "react";
-import MapComponent from "./MapComponent";
+import MapConatiner from "./MapConatiner";
 
 const App = () => {
     return (
         <>
-            <MapComponent/>
+            <MapConatiner/>
         </>
     )
 }
