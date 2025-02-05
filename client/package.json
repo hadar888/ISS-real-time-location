@@ -7,9 +7,8 @@
     "build": "webpack"
   },
   "keywords": [],
-  "author": "",
+  "author": "Hadar Shoshan",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@babel/core": "^7.26.7",
     "@babel/preset-env": "^7.26.7",

@@ -1,8 +1,17 @@
 import express, { Request, Response } from 'express';
 import axios from 'axios';
+import cors from 'cors';
 
 const app = express();
 const port = 4000;
+
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+};
+
+app.use(cors(corsOptions));
 
 app.get('/', async (req: Request, res: Response) => {
   console.log('trying to get ISS current location...');
