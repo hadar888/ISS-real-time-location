@@ -2,7 +2,12 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { LatLngExpression } from 'leaflet';
 import appConfig from '../AppConfig';
 import MapIssLocation from './MapIssLocation';
-import RefreshLocaion from './RefreshLocaion';
+import LocationInfo from './LocationInfo';
+import styled from 'styled-components';
+
+const Container = styled.div(() => ({
+    position: 'relative',
+}));
 
 const intervalDuration = 15000;
 
@@ -36,12 +41,15 @@ const MapConatiner = () => {
     };
 
     return (
-        <>
+        <Container>
             <MapIssLocation currentLocation={currentLocation} />
-            <RefreshLocaion onClick={onRefresh} />
-            {lastUpdateTime && <div> {new Date(lastUpdateTime).toDateString() + " "
-                + new Date(lastUpdateTime).toLocaleTimeString()} </div>}
-        </>
+            <LocationInfo
+                lastUpdateTime={lastUpdateTime}
+                latitude={currentLocation ? currentLocation[0] : undefined}
+                longitude={currentLocation ? currentLocation[1] : undefined}
+                onRefresh={onRefresh}
+            />
+        </Container>
     );
 };
 
