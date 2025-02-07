@@ -67,6 +67,7 @@ The server is configured to allow cross-origin requests from `http://localhost:3
 ## Frontend - Component Overview
 ### MapContainer
 **Role:** The main container for the map and the information about the ISS location.
+
 **Features:**
 - Fetches the ISS location every 15 seconds via a GET request to the backend server.
 - Displays the MapIssLocation component with the ISS location as a marker on the map.
@@ -75,6 +76,7 @@ The server is configured to allow cross-origin requests from `http://localhost:3
 
 ### MapIssLocation
 **Role:** Displays the ISS's current location on a map using the react-leaflet library.
+
 **Features:**
 - Renders a map with a tile layer from OpenStreetMap.
 - Displays a marker at the position of the ISS using the Marker component from Leaflet.
@@ -82,12 +84,14 @@ The server is configured to allow cross-origin requests from `http://localhost:3
 
 ### MapUpdater
 **Role:** Updates the map view to center on the new ISS location.
+
 **Features:**
 - Uses the useMap hook from react-leaflet to get access to the Leaflet map instance.
 - When the ISS location changes, the map view is updated to center on the new coordinates.
 
 ### LocationInfo
 **Role:** Displays the ISS location information (latitude, longitude, and last update time).
+
 **Features:**
 - Displays the current ISS location details.
 - Allows manual refreshing of the location with a button (RefreshLocation).
@@ -95,6 +99,7 @@ The server is configured to allow cross-origin requests from `http://localhost:3
 
 ### RefreshLocation
 **Role:** A button that triggers the refresh of the ISS location when clicked.
+
 **Features:**
 - Displays "Loading..." when the data is being fetched and is disabled.
 - Displays "Refresh Location" when the button is active.
