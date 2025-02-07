@@ -1,5 +1,5 @@
 import React from 'react';
-import RefreshLocaion from './RefreshLocaion';
+import RefreshLocaion from './RefreshLocation';
 import styled from 'styled-components';
 
 const InfoContainer = styled.div(() => ({
@@ -34,21 +34,22 @@ interface LocationInfoProps {
     longitude: number | undefined;
     lastUpdateTime: number | undefined;
     onRefresh: () => void;
+    isAbleToClick: boolean;
 }
 
 const LocationInfo = (props: LocationInfoProps) => {
-    const { latitude, longitude, lastUpdateTime, onRefresh } = props;
+    const { latitude, longitude, lastUpdateTime, onRefresh, isAbleToClick } = props;
 
     return (
         <InfoContainer>
             <Header> ISS </Header>
             <InfoText>
-                <div> last update: {lastUpdateTime ? new Date(lastUpdateTime).toDateString() + " "
+                <div> Last update: {lastUpdateTime ? new Date(lastUpdateTime).toDateString() + " "
                     + new Date(lastUpdateTime).toLocaleTimeString() : 'Loading...'} </div>
-                <div> latitude: {latitude ? latitude : 'Loading...'} </div>
-                <div> longitude: {longitude ? longitude : 'Loading...'} </div>
+                <div> Latitude: {latitude ? latitude : 'Loading...'} </div>
+                <div> Longitude: {longitude ? longitude : 'Loading...'} </div>
             </InfoText>
-            <RefreshLocaion onClick={onRefresh} />
+            <RefreshLocaion onClick={onRefresh} isAbleToClick={isAbleToClick}/>
         </InfoContainer>
     )
 };

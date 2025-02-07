@@ -14,6 +14,7 @@ const intervalDuration = 15000;
 const MapConatiner = () => {
     const [currentLocation, setCurrentLocation] = useState<LatLngExpression | undefined>();
     const [lastUpdateTime, setLastUpdateTime] = useState<number | undefined>();
+    const [isAbleToClick, setIsAbleToClick] = useState<boolean>(false);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     const getCurrentIssLocation = useCallback(() => {
@@ -25,6 +26,9 @@ const MapConatiner = () => {
             })
             .catch((error) => {
                 console.error('Error fetching ISS location:', error);
+            })
+            .finally(() => {
+                setIsAbleToClick(true);
             });
     }, []);
 
@@ -35,6 +39,7 @@ const MapConatiner = () => {
     }, []);
 
     const onRefresh = () => {
+        setIsAbleToClick(false);
         intervalRef.current && clearInterval(intervalRef.current);
         getCurrentIssLocation();
         intervalRef.current = setInterval(getCurrentIssLocation, intervalDuration);
@@ -48,6 +53,7 @@ const MapConatiner = () => {
                 latitude={currentLocation ? currentLocation[0] : undefined}
                 longitude={currentLocation ? currentLocation[1] : undefined}
                 onRefresh={onRefresh}
+                isAbleToClick={isAbleToClick}
             />
         </Container>
     );
