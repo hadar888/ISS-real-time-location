@@ -1,13 +1,14 @@
 
 # ISS Location Tracker
 
-This project visualizes the current location of the International Space Station (ISS) on a map using React, Leaflet, and TypeScript, with a backend powered by Express. The server fetches ISS location data from a public API and serves it to the front-end.
+This project visualizes the current location of the International Space Station (ISS) on a map using React, Leaflet, and TypeScript, with a backend powered by Express. The server fetches ISS location data from a public API and serves it to the front-end while utilizing caching to optimize performance.
 
 ## Features
 - Displays the ISS's current location on a map.
 - Updates the location every 15 seconds.
 - Allows manual refreshing of the ISS location.
 - Backend server to fetch data from the Open Notify API.
+- Caches ISS location data on the server to reduce redundant API calls.
 
 ## Technologies Used
 - **React**: Front-end framework for building the user interface.
@@ -48,6 +49,7 @@ The backend server is responsible for fetching the ISS location data from the **
 ### 1. `Express Server`
 - The server runs on port 4000.
 - When the front-end requests the ISS location, the server fetches the data from the **Open Notify API** (`http://api.open-notify.org/iss-now.json`) and returns it as JSON.
+- Implements caching to limit external API requests to a maximum of once per second.
 
 ### 2. **CORS Configuration**
 The server is configured to allow cross-origin requests from `http://localhost:3000`.
