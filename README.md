@@ -39,7 +39,7 @@ npm start
 ```bash
 cd client
 npm i
-npm start
+npm run dev
 ```
 Visit `http://localhost:3000` to view the application in action.
 
