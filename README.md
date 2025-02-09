@@ -18,6 +18,7 @@ This project visualizes the current location of the International Space Station 
 - **Webpack**: Bundler used to compile the project.
 - **Express**: Backend server to handle API requests.
 - **Axios**: HTTP client used in the server to fetch data.
+- **Leaflet-terminator**: Displays the day/night cycle on the map.
 
 ## Setup
 
@@ -105,3 +106,12 @@ The server is configured to allow cross-origin requests from `http://localhost:3
 **Features:**
 - Displays "Loading..." when the data is being fetched and is disabled.
 - Displays "Refresh Location" when the button is active.
+
+### DayNightLayer
+**Role:** Displays the day/night cycle on the map, visualizing areas in daylight and darkness based on the ISS's position.
+
+**Features:**
+- Uses the LeafletTerminator library to create a day/night overlay on the map.
+- The map updates every minute to reflect the current state of the day/night cycle.
+- Adds a dynamic black overlay representing the night portion of the Earth based on the ISS's position.
+- Automatically removes and re-adds the day/night layer to ensure it updates every minute.
