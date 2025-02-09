@@ -32,14 +32,14 @@ cd ISS-real-time-location
 ```bash
 cd server
 npm i
-npm start
+npm run dev
 ```
 
 ### 3. Set up the frontend
 ```bash
 cd client
 npm i
-npm run dev
+npm start
 ```
 Visit `http://localhost:3000` to view the application in action.
 
